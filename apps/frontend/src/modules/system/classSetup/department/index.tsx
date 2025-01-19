@@ -39,6 +39,7 @@ const headerProps = {
 const getDefaultValues = (selected: any, mode: CrudDialogMode) => ({
   _id: mode === "update" ? selected?._id : "",
   department_name: selected?.department_name ? selected.department_name : "",
+  department_short_name: selected?.department_short_name ? selected.department_short_name : "",
   is_active: selected && "is_active" in selected ? selected.is_active : true,
 });
 
@@ -47,9 +48,9 @@ const schema = departmentSchema.omit(["_id", "added_by", "added_on"]);
 const componentName = "Department";
 const hookName = "department";
 
-const tableDataKeys = ["department_name", "is_active"];
+const tableDataKeys = ["department_name",  "department_short_name", "is_active"];
 
-const tableHeaders = ["Department", "Status"];
+const tableHeaders = ["Department", "Short Name", "Status"];
 
 const getDeleteContent = (item: any) => {
   return `${item?.department_name} ${componentName}`;

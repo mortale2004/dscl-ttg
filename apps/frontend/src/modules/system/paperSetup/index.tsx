@@ -2,7 +2,7 @@ import React from "react";
 import Tabs, { TabType } from "@dscl-ttg/ui/Tabs";
 import Container from "@dscl-ttg/ui/Container";
 import PaperType from "./paperType";
-import { Paper } from "@mui/material";
+import Paper from "./paper";
 const PaperSetup = () => {
   return (
     <Container>

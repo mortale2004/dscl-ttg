@@ -12,6 +12,9 @@ const Form: React.FC<FormProps> = memo(({}) => {
         <TextField label="Course" name="course_name" />
       </GridItem>
       <GridItem>
+        <TextField label="Short Name" name="course_short_name" />
+      </GridItem>
+      <GridItem>
         <RadioButton name="is_active" label="Active" />
       </GridItem>
     </Fragment>

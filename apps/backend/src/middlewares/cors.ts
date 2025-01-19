@@ -6,7 +6,7 @@ import cors from "cors";
  */
 const registerCors = (
   app: Application,
-  appOrigin = "http://localhost:5173",
+  appOrigin: string,
 ) => {
   app.use(
     cors({

@@ -87,58 +87,12 @@ export const getUserData = async (filter: any) => {
   }
 
   return user;
-
-  //   user.default_branch_id = "a964e143-3412-4dde-b666-213777764f30";
-  //   user.default_academic_year_id = "1c5425df-724d-4ad0-9ae8-11ed53dbff03";
-  //   user.branches = [
-  //     {
-  //       branch_id: "a964e143-3412-4dde-b666-213777764f30",
-  //       branch_name: "School",
-  //       branch_code: "007",
-  //       branch_type: "School",
-  //       primary_contact: "7897658967",
-  //       secondary_contact: "8945734895",
-  //       address_line: "sdffsdf",
-  //       branch_city_id: "dcf51e0f-1be0-4508-ad08-653ba1f4e3cb",
-  //       is_active: true,
-  //       email_address: "4243@gmail.com",
-  //       branch_city_name: "Latur",
-  //       district_id: "65bfc96960678241ea8499fa",
-  //       district_name: "Latur",
-  //       state_id: "65bf40ca9538446797e83335",
-  //     },
-  //     {
-  //       branch_id: "9c012a19-ca77-4862-88fb-374295f75eae",
-  //       branch_name: "Barshi Road",
-  //       branch_code: "001",
-  //       email_address: "4243@gmail.com",
-  //       branch_type: "School",
-  //       primary_contact: "7897658967",
-  //       secondary_contact: "8945734895",
-  //       address_line: "sdffsdf",
-  //       branch_city_id: "dcf51e0f-1be0-4508-ad08-653ba1f4e3cb",
-  //       is_active: true,
-  //       branch_city_name: "Latur",
-  //       district_id: "65bfc96960678241ea8499fa",
-  //       district_name: "Latur",
-  //       state_id: "65bf40ca9538446797e83335",
-  //     },
-  //   ];
 };
 
-const handleJobSeekerRegistration = (formData: any) => {
-  const payload = validatePayload(formData, jobSeekerRegistrationSchema);
-};
 
 export const authController = {
   register: requestHandlingWrapper(async (req: Request, res: Response) => {
-    switch (req.body.formData?.registration_type) {
-      case USER_CONSTANTS.REGISTRATION_TYPE.JOB_SEEKER:
-        handleJobSeekerRegistration(req.body.formData);
-        break;
-      case USER_CONSTANTS.REGISTRATION_TYPE.TEST_SERIES:
-        break;
-    }
+   
   }),
 
   userData: requestHandlingWrapper(async (req: Request, res: Response) => {
@@ -165,6 +119,7 @@ export const authController = {
       },
     });
 
+
     // TODO Add Bcrypt Compare for hashed passwords
     if (!user) {
       throw new UnauthenticatedError("Username/Password is Incorrect!");
@@ -172,7 +127,6 @@ export const authController = {
 
     const accessToken = generateAccessToken(getTokenPayload(user));
     const refreshToken = generateRefreshToken(getTokenPayload(user));
-    console.log(user);
     if (
       !(await userLoginDas.updateRecord(
         { user_id: user._id },
@@ -182,6 +136,7 @@ export const authController = {
         },
         {
           upsert: true,
+          new: true,
         }
       ))
     ) {

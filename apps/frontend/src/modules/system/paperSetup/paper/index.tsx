@@ -13,8 +13,11 @@ const Paper = () => {
   }) 
   const {data: courseSem} = apiHooks?.courseSem?.useGetList({
     is_active: true,
+  });
+  const {data: paperType} = apiHooks?.paperType?.useGetList({
+    is_active: true,
   })
-  const FormComponent = useCallback((props:any) => <Form {...props} course={course} courseSem={courseSem} />, [course, courseSem]);
+  const FormComponent = useCallback((props:any) => <Form {...props} paperType={paperType} course={course} courseSem={courseSem} />, [course, courseSem, paperType]);
   return (
     <Crud
       componentName={componentName}
@@ -24,7 +27,7 @@ const Paper = () => {
       tableHeaders={tableHeaders}
       tableDataKeys={tableDataKeys}
       getDefaultValues={getDefaultValues}
-      FormComponent={Form}
+      FormComponent={FormComponent}
       schema={schema}
     />
   );
