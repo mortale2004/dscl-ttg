@@ -10,7 +10,7 @@ export const moduleController = generateController({
   addMetaData: true,
   searchableFields: ["module_name"],
   getListParams: {
-    basicFilter: ["is_active", "parent_id"],
+    basicFilter: ["is_active", "parent_id" ],
     sortBy: {
       module_name: 1,
     },
