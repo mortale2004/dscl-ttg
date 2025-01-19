@@ -55,6 +55,46 @@ export const apiEndPoints: RoutesType = {
       controller: "userRolePermissionController",
     },
 
+    // Class Setup
+    academicYear: {
+      route: "/academicyears",
+      controller: "academicYearController",
+    },
+    classroom: {
+      route: "/classrooms",
+      controller: "classroomController",
+    },
+    course:{
+      route: "/courses",
+      controller: "courseController",
+    },
+    courseSem: {
+      route: "/coursesems",
+      controller: "courseSemController",
+    },
+    division:{
+      route: "/divisions",
+      controller: "divisionController",
+    },
+    department:{
+      route: "/departments",
+      controller: "departmentController",
+    },
+    dcyaMapping:{
+      route: "/dcyamappings",
+      controller: "dcyaMappingController",
+    },
+
+    // Paper Setup
+    paperType: {
+      route: "/papertypes",
+      controller: "paperTypeController",
+    },
+    paper: {
+      route: "/papers",
+      controller: "paperController",
+    },
+
   },
 
   user: {
