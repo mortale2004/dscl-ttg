@@ -1,0 +1,34 @@
+{
+  "name": "@dscl-ttg/example",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.mjs",
+
+  "files": [
+    "dist/**"
+  ],
+  "exports": {
+    ".": {
+        "types": "./dist/index.d.ts",
+        "require": "./dist/index.js",
+        "import": "./dist/index.mjs"
+  }
+},
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+
+  },
+  "devDependencies": {
+    "@dscl-ttg/eslint-config": "workspace:*",
+    "@dscl-ttg/typescript-config": "workspace:*",
+    "@types/node": "^20.11.24",
+    "tsup": "^8.0.2",
+    "typescript": "5.5.4"
+  }
+}

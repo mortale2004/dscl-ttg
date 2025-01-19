@@ -1,0 +1,16 @@
+{
+    "extends": "@dscl-ttg/typescript-config/base.json",
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@dscl-ttg/models/*": ["src/*"],
+        "@netizesn/types/*": ["packages/types/dist/*"]
+      },
+      "lib": ["ES2015"],
+      "outDir": "./dist",
+      "rootDir": "./src",  // Ensure the root directory is set to 'src'
+      "types": ["node"]
+    },
+    "include": ["src/**/*"],  // Ensure only files in 'src' are included
+    "exclude": ["node_modules", "dist"]
+  }

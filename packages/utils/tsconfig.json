@@ -1,0 +1,11 @@
+{
+  "extends": "@dscl-ttg/typescript-config/base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["ES2015"],
+    "outDir": "./dist",
+    "types": ["node"]
+  },
+  "include": ["."],
+  "exclude": ["node_modules", "dist"],
+}

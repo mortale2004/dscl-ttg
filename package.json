@@ -1,0 +1,23 @@
+{
+    "private": true,
+    "scripts": {
+      "build": "NODE_OPTIONS='--max-old-space-size=16384' turbo run build --concurrency=2",
+      "clean": "turbo run clean",
+      "dev": "NODE_OPTIONS='--max-old-space-size=16384' turbo run dev --concurrency 20",
+      "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+      "lint": "turbo run lint",
+      "lint:fix": "turbo run lint -- --fix",
+      "test": "turbo run test",
+      "typecheck": "turbo run typecheck",
+      "start": "cd apps/backend && node dist/index.js"
+    },
+    "devDependencies": {
+      "prettier": "^3.2.5",
+      "turbo": "^2.3.3"
+    },
+    "packageManager": "pnpm@8.15.6",
+    "engines": {
+      "node": ">=18"
+    },
+    "name": "dscl-ttg"
+  }

@@ -1,0 +1,10 @@
+export {ReactComponent as NoDataFoundSvg} from './no_data_found.svg';
+export {ReactComponent as Error401Svg} from './401.svg';
+export {ReactComponent as Error403Svg} from './403.svg';
+export {ReactComponent as Error404Svg} from './404.svg';
+export {ReactComponent as Error500Svg} from './500.svg';
+export {ReactComponent as Error503Svg} from './503.svg';
+export {ReactComponent as ComingSoonSvg} from './comingsoon.svg';
+export {ReactComponent as MaintenanceSvg} from './maintenance.svg';
+export {ReactComponent as SomethingWrongSvg} from './something-wrong.svg';
+export {ReactComponent as LoginSvg} from './login.svg';

@@ -1,0 +1,17 @@
+{
+  "extends": "@dscl-ttg/typescript-config/base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+        "@middlewares/*": ["./src/middlewares/*"],
+        "@models/*": ["./src/models/*"],
+        "@routes/*": ["./src/routes/*"],
+        "@controllers/*": ["./src/controllers/*"],
+        "@services/*": ["./src/services/*"],
+    },
+    "lib": ["ES2015"],
+    "outDir": "./dist"
+  },
+  "exclude": ["node_modules"],
+  "include": [".",]
+}

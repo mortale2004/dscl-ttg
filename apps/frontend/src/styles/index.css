@@ -1,0 +1,148 @@
+@import 'base.css';
+@import 'maps.css';
+@import 'loader.css';
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+  background-color: rgb(243, 243, 243);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(133, 133, 133);
+  border-radius: 10px;
+}
+
+img {
+  /* -user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none; */
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.align-flex-end {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+strong,
+b {
+  font-weight: 600 !important;
+}
+.flex-end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.align-start {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+@media print {
+  html {
+    margin: 0px;
+  }
+  * {
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .page {
+    margin: 0;
+    border: initial;
+    border-radius: initial;
+    min-height: initial;
+    box-shadow: initial;
+    background: initial;
+    page-break-after: always;
+    width: 8.3in;
+    padding: 0 0 0 20px;
+  }
+}
+
+.visibleOnHover {
+  visibility: hidden;
+}
+
+.visibleOnHover:hover {
+  visibility: visible;
+}
+
+.semi-bold {
+  font-weight: 600;
+}
+
+.bold {
+  font-weight: 900;
+}
+
+.space-between-column {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column !important;
+}
+
+/* For blinking NSAT */
+
+.blink {
+  animation: blink 1s infinite linear;
+}
+
+@keyframes blink {
+  0% {
+    color: yellow;
+  }
+
+  50% {
+    color: lightgreen;
+  }
+
+  100% {
+    color: cyan;
+  }
+}
+
+.ML__container {
+  padding: 0px !important;
+  background-color: red !important;
+}
+
+.ML_content {
+  padding: 0px !important;
+  background-color: green !important;
+}

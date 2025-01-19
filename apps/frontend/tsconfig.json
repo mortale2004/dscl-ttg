@@ -1,0 +1,17 @@
+{
+  "exclude": ["node_modules"],
+  "extends": "@dscl-ttg/typescript-config/vite.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+        "@routes*":["./src/routes/*"],
+        "@modules*":["./src/modules/*"],
+        "@services*":["./src/services/*"],
+        "@common*":["./src/common/*"],
+    },
+    "rootDir": ".",
+    "outDir": "dist",
+    "types": ["vite-plugin-svgr/client"]
+  },
+  "include": ["src", "vite.config.ts"]
+}

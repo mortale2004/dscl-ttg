@@ -1,0 +1,14 @@
+{
+  "extends": "@dscl-ttg/typescript-config/react-library.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+        "@ui/*": ["./src/*"],
+    },
+    "lib": ["dom", "ES2015"],
+    "sourceMap": true,
+    "types": [ "node"],
+  },
+  "include": ["."],
+  "exclude": ["dist", "build", "node_modules"]
+}

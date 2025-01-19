@@ -1,0 +1,51 @@
+{
+  "name": "@dscl-ttg/models",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js"
+    },
+    "./system": {
+      "types": "./dist/system/index.d.ts",
+      "require": "./dist/system/index.js"
+    },
+    "./user": {
+      "types": "./dist/user/index.d.ts",
+      "require": "./dist/user/index.js"
+    },
+    "./constants": {
+      "types": "./dist/constants/index.d.ts",
+      "require": "./dist/constants/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@dscl-ttg/eslint-config": "workspace:*",
+    "@dscl-ttg/typescript-config": "workspace:*",
+    "@types/node": "^20.11.24",
+    "tsup": "^8.0.2",
+    "@types/mongoose": "^5.11.97",
+    "@types/uuid": "^10.0.0",
+    "typescript": "5.5.4"
+  },
+  "dependencies": {
+    "@dscl-ttg/logger": "workspace:*",
+    "@dscl-ttg/constants": "workspace:*",
+    "@dscl-ttg/types": "workspace:*",
+    "mongoose": "^8.9.2",
+    "uuid": "^11.0.3"
+  }
+}

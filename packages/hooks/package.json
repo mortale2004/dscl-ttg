@@ -1,0 +1,39 @@
+{
+  "name": "@dscl-ttg/hooks",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@dscl-ttg/eslint-config": "workspace:*",
+    "@dscl-ttg/typescript-config": "workspace:*",
+    "@types/axios": "^0.14.4",
+    "@types/node": "^20.11.24",
+    "@types/react": "^18.2.62",
+    "react-query": "link:@types/@tanstack/react-query",
+    "tsup": "^8.0.2",
+    "typescript": "5.5.4"
+  },
+  "dependencies": {
+    "@dscl-ttg/env": "workspace:*",
+    "@dscl-ttg/constants": "workspace:*",
+    "@dscl-ttg/frontend-utils": "workspace:*",
+    "@dscl-ttg/store": "workspace:*",
+    "@tanstack/react-query": "^5.62.11",
+    "axios": "^1.7.9",
+    "react": "^18.2.0",
+    "react-router-dom": "^7.1.1",
+    "recoil": "^0.7.7",
+    "use-url-search-params": "^2.5.1"
+  }
+}

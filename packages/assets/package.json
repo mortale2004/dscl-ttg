@@ -1,0 +1,19 @@
+{
+  "name": "@dscl-ttg/assets",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./src/index.js",
+  "files": [
+    "dist",
+    "images",
+    "svg",
+    "gif"
+  ],
+  "scripts": {
+    "lint": "eslint src/",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@dscl-ttg/eslint-config": "workspace:*"
+  }
+}
