@@ -19,6 +19,11 @@ const Dashboard = React.lazy(() => import("@modules/admin/dashboard"));
 const PermissionSetup = React.lazy(
   () => import("@modules/system/permissionSetup")
 );
+// Class Routes
+const ClassSetup = React.lazy(() => import("@modules/system/classSetup"));
+
+// Paper Routes
+const PaperSetup = React.lazy(() => import("@modules/system/paperSetup"));
 
 const adminRoutes: RouterConfigData[] = [
   {
@@ -49,6 +54,20 @@ const adminRoutes: RouterConfigData[] = [
         ],
         permittedRole: [USER_ROLE.SUPER_ADMIN],
       },
+      {
+        element: <ClassSetup />,
+        title: "Class Setup",
+        type: "item",
+        path: ["/class/departments", "/class/classrooms", "/class/courses", "/class/coursesems", "/class/divisions"],
+        permittedRole: [USER_ROLE.SUPER_ADMIN],
+      },
+      {
+        element: <PaperSetup />,
+        title: "Paper Setup",
+        type: "item",
+        path: ["/paper/papertypes", "/paper/papers"],
+        permittedRole: [USER_ROLE.SUPER_ADMIN],
+      }
     ],
   }
 ];

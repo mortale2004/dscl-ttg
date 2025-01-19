@@ -9,9 +9,7 @@ class paperTypeDas extends DBOperations {
   }
   isExists(payload: any) {
     const filter: any = {
-      $or: [
         paper_type_name: payload.paper_type_name,
-      ]
     };
     if (payload._id) {
       filter._id = { $ne: payload._id };
