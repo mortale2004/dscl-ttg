@@ -11,6 +11,7 @@ export const dcyaMappingModel = generateModel(
     department_id: { type: String, required: true },
     division_id: { type: String, required: true },
     classroom_id: { type: String, required: true },
+    paper_ids: { type: Array, default: [] },
   },
   dcyaMappingSchema,
   true,

@@ -54,6 +54,7 @@ const getDefaultValues = (selected: any, mode: CrudDialogMode) => ({
   paper_code: selected?.paper_code ? selected.paper_code : "",  
   course_id: selected?.course_id ? selected.course_id : "",
   course_sem_id: selected?.course_sem_id ? selected.course_sem_id : "",
+  paper_type_id: selected?.paper_type_id ? selected.paper_type_id : "",
   is_active: selected && "is_active" in selected ? selected.is_active : true,
 });
 

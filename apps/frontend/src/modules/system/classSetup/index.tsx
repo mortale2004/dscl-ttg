@@ -6,6 +6,8 @@ import Classroom from "./classroom";
 import Course from "./course";
 import CourseSem from "./courseSem";
 import Division from "./division";
+import DcyaMapping from "./dcyaMapping";
+import AcademicYear from "./academicYear";
 const ClassSetup = () => {
   return (
     <Container>
@@ -17,6 +19,11 @@ const ClassSetup = () => {
 export default ClassSetup;
 
 const tabs: TabType[] = [
+  {
+    label:"Academic Year",
+    path:"/class/academicyears",
+    component:<AcademicYear/>
+  },
   {
     label: "Department",
     path: "/class/departments",
@@ -42,4 +49,9 @@ const tabs: TabType[] = [
     path: "/class/divisions",
     component: <Division/>,
   },
+  {
+    label: "DCYA Mapping",
+    path: "/class/dcyamappings",
+    component: <DcyaMapping/>,
+  }
 ];

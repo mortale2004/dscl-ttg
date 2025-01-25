@@ -1,5 +1,5 @@
 import { schemaMetaData, validate } from "src/utils/validation";
-import { InferType, object } from "yup";
+import { array, InferType, object, string } from "yup";
 
 export const dcyaMappingSchema = object({
     academic_year_id: validate.requiredText("Year"),
@@ -8,6 +8,7 @@ export const dcyaMappingSchema = object({
     department_id: validate.requiredText("Department"),
     division_id: validate.requiredText("Division"),
     classroom_id: validate.requiredText("Classroom"),
+    paper_ids: array(string()),
   ...schemaMetaData(true, true, true),
 });
 

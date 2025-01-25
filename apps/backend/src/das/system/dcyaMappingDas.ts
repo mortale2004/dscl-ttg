@@ -61,6 +61,33 @@ class dcyaMappingDas extends DBOperations {
           },
         },
         {
+          $lookup: {
+            from: collections.system.masPaper,
+            let: { paperIds: "$paper_ids" },
+            pipeline: [
+              { $match: { $expr: { $in: ["$_id", "$$paperIds"] } } },
+              {
+                $lookup: {
+                  from: collections.system.masPaperType,
+                  let: { paperTypeId: "$paper_type_id" },
+                  pipeline: [{ $match: { $expr: { $eq: ["$_id", "$$paperTypeId"] } } }],
+                  as: "paperTypeDetails",
+                },
+              },
+              {
+                $project: {
+                  _id: 1,
+                  paper_name:1,
+                  paper_code:1,
+                  paper_type_id: 1,
+                  paper_type_name: { $first: "$paperTypeDetails.paper_type_name" },
+                },
+              }
+            ],
+            as: "papers",
+          },
+        },
+        {
           $project:{
             academic_year_id: 1,
             course_id: 1,
@@ -69,11 +96,12 @@ class dcyaMappingDas extends DBOperations {
             department_id: 1,
             classroom_id: 1,
             is_active: 1,
-
             classroom_name: { $first: "$classroomDetails.classroom_name" },
             course_name: { $first: "$courseDetails.course_name" },
             course_sem_name: { $first: "$courseSemDetails.course_sem_name" },
             division_name: { $first: "$divisionDetails.division_name" },
+            paper_ids:1,
+            papers:1,
           }
         }
     ], options, {

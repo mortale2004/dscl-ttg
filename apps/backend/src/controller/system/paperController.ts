@@ -10,7 +10,7 @@ export const paperController = generateController({
   addMetaData: true,
   searchableFields: ["paper_name", "paper_code"],
   getListParams: {
-    basicFilter: ["is_active"],
+    basicFilter: ["is_active", "paper_type_id", "course_id", "course_sem_id"],
     sortBy: {
         paper_code: 1,
     },

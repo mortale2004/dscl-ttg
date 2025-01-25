@@ -37,6 +37,22 @@ class paperDas extends DBOperations {
         },
       },
       {
+        $lookup: {
+          from: collections.system.masCourse,
+          let: { courseId: "$course_id" },
+          pipeline: [{$match:{$expr:{$eq: ["$_id","$$courseId"]}}}],
+          as: 'courseDetails',
+        },
+      },
+      {
+        $lookup: {
+          from: collections.system.masCourseSem,
+          let: { courseSemId: "$course_sem_id" },
+          pipeline: [{$match:{$expr:{$eq: ["$_id","$$courseSemId"]}}}],
+          as: 'courseSemDetails',
+        },
+      },
+      {
         $project:{
           _id: 1,
           paper_name: 1,
@@ -44,6 +60,10 @@ class paperDas extends DBOperations {
           is_active: 1,
           paper_type_id: 1,
           paper_type_name: { $first: "$paperTypeDetails.paper_type_name" },
+          course_id: 1,
+          course_sem_id: 1,
+          course_name:{$first:"$courseDetails.course_name"},
+          course_sem_name: {$first:"$courseSemDetails.course_sem_name"},
         }
       }
     ], options, {

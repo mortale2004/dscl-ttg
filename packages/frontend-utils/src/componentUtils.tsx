@@ -131,7 +131,7 @@ const getValueFromKeyAndData = (key: string, item: any) => {
           ? "Inactive"
           : "";
 
-    case "is_default":
+    case "is_current":
     case "is_admission_open":
     case "is_published":
     case key?.startsWith("is_") ? key : null:

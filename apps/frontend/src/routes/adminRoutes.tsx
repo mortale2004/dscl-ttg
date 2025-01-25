@@ -58,7 +58,7 @@ const adminRoutes: RouterConfigData[] = [
         element: <ClassSetup />,
         title: "Class Setup",
         type: "item",
-        path: ["/class/departments", "/class/classrooms", "/class/courses", "/class/coursesems", "/class/divisions"],
+        path: [ "/class/dcyamappings", "/class/academicyears", "/class/departments", "/class/classrooms", "/class/courses", "/class/coursesems", "/class/divisions"],
         permittedRole: [USER_ROLE.SUPER_ADMIN],
       },
       {

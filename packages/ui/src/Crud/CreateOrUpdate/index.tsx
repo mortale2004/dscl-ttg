@@ -22,6 +22,7 @@ export type CreateOrUpdateProps = {
   customOnCreateSuccess?: (data: any) => void;
   customOnUpdateSuccess?: (data: any) => void;
   fullScreen?: boolean;
+  getFormData?:Function;
 };
 
 const CreateOrUpdate: React.FC<CreateOrUpdateProps> = ({
@@ -33,7 +34,8 @@ const CreateOrUpdate: React.FC<CreateOrUpdateProps> = ({
   maxWidth,
   customOnCreateSuccess,
   customOnUpdateSuccess,
-  fullScreen
+  fullScreen,
+  getFormData
 }) => {
   const [crudForm, setCrudForm] = useRecoilState(crudFormDialogAtom);
   const setCrudData = useSetRecoilState(crudDataAtom);
@@ -87,12 +89,12 @@ const CreateOrUpdate: React.FC<CreateOrUpdateProps> = ({
     (data: any) => {
       if (crudForm.mode === "create" || crudForm.mode === "duplicate") {
         delete data._id;
-        create?.mutate?.(data);
+        create?.mutate?.(getFormData ? getFormData(data) : data);
       } else {
-        update?.mutate?.(data);
+        update?.mutate?.(getFormData ? getFormData(data) : data); 
       }
     },
-    [crudForm.mode, update?.mutate, create?.mutate]
+    [crudForm.mode, update?.mutate, create?.mutate, getFormData]
   );
 
   const TitleComponent = useMemo(

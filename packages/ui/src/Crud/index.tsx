@@ -84,6 +84,7 @@ const Crud: React.FC<CrudProps> = memo(
     fullScreen,
     getListEnabled = true,
     getListEnableMessage = "Select Required Fields to Get List",
+    getFormData
   }) => {
     const { pathname } = useLocation();
     const auth = useRecoilValue(authAtom);
@@ -241,7 +242,7 @@ const Crud: React.FC<CrudProps> = memo(
                   endReached={
                     crudData?.data?.length < crudData?.count && !isLoading
                       ? () => {
-                          setPage((prev: any) => prev + 1);
+                          setPage(page + 1);
                         }
                       : undefined
                   }
@@ -295,6 +296,7 @@ const Crud: React.FC<CrudProps> = memo(
           customOnCreateSuccess={customOnCreateSuccess}
           customOnUpdateSuccess={customOnUpdateSuccess}
           fullScreen={fullScreen}
+          getFormData={getFormData}
         />
       </Fragment>
     );
