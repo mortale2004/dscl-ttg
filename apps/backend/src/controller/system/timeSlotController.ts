@@ -12,7 +12,7 @@ export const timeSlotController = generateController({
   getListParams: {
     basicFilter: ["is_active"],
     sortBy: {
-        time_slot_name: 1,
+      start_time: 1,
     },
   },
 });

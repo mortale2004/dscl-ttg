@@ -95,6 +95,15 @@ export const apiEndPoints: RoutesType = {
       controller: "paperController",
     },
 
+    // Time Table Setup
+    timeSlot: {
+      route: "/timeslots",
+      controller: "timeSlotController",
+    },
+    timeTable: {
+      route: "/timetables",
+      controller: "timeTableController",
+    }
   },
 
   user: {

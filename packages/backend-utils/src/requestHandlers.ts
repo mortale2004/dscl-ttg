@@ -174,7 +174,7 @@ export const generateGetAllHandler = ({
       }));
     }
 
-    const response = await getData(filter, sortBy, skip, limit);
+    const response = await getData(filter, getListParams.sortBy, skip, limit);
     response.page = page;
     responseUtil.getList(response, res);
   });

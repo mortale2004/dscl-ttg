@@ -7,7 +7,7 @@ export const timeSlotSchema = object({
     end_time: validate.requiredDate("End Time"),
     is_break_slot: validate.requiredBoolean("Break Slot"),
     break_name: validate.text("Break Name"),
-  ...schemaMetaData(true, true, true),
+  ...schemaMetaData(true, true),
 });
 
 export type timeSlotType = InferType<typeof timeSlotSchema>;

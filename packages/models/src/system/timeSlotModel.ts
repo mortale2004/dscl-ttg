@@ -14,5 +14,4 @@ export const timeSlotModel = generateModel(
   timeSlotSchema,
   true,
   true,
-  true,
 );

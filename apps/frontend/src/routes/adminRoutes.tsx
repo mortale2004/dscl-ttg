@@ -1,17 +1,11 @@
 import { USER_ROLE } from "@dscl-ttg/constants";
 import { RouterConfigData } from "@dscl-ttg/types/app";
 import React from "react";
-import { BsFillClipboardFill } from "react-icons/bs";
-import { FaRupeeSign, FaUserSecret } from "react-icons/fa";
-import { FaClipboardQuestion } from "react-icons/fa6";
-import { GiProgression } from "react-icons/gi";
+import { FaUserSecret } from "react-icons/fa";
 import {
   MdDashboard,
-  MdOutlineSatelliteAlt,
-  MdSchool,
   MdSettings,
 } from "react-icons/md";
-import { PiRankingFill, PiUsersThreeFill } from "react-icons/pi";
 
 const Dashboard = React.lazy(() => import("@modules/admin/dashboard"));
 
@@ -21,6 +15,9 @@ const PermissionSetup = React.lazy(
 );
 // Class Routes
 const ClassSetup = React.lazy(() => import("@modules/system/classSetup"));
+
+// Timetable Routes 
+const TimeTableSetup = React.lazy(() => import("@modules/system/timeTableSetup"));
 
 // Paper Routes
 const PaperSetup = React.lazy(() => import("@modules/system/paperSetup"));
@@ -70,7 +67,14 @@ const adminRoutes: RouterConfigData[] = [
         type: "item",
         path: ["/paper/papertypes", "/paper/papers"],
         permittedRole: [USER_ROLE.SUPER_ADMIN],
-      }
+      },
+      {
+        element: <TimeTableSetup />,
+        title: "Time Table Setup",
+        type: "item",
+        path: ["/timetable/timeslots"],
+        permittedRole: [USER_ROLE.SUPER_ADMIN],
+      },
     ],
    
   },

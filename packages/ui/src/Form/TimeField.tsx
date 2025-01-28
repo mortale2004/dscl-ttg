@@ -31,7 +31,12 @@ const TimeField: React.FC<TimeFieldProps> = memo(
           <TimeFieldUI
             name={name}
             onChange={
-              onChange ? (event) => onChange(event, field) : field.onChange
+              onChange ? (event) =>{
+                field.onChange(event);
+                if (onChange){
+                  onChange(event, field);   
+                  }
+                 } : field.onChange
             }
             value={field.value}
             error={!!error}
