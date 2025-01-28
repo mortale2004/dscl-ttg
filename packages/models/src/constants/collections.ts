@@ -22,6 +22,7 @@ export const collections = {
 
     // Time Table Setup
     masTimeSlot: "mas_time_slot",
+    timeTable: "time_table",
 
   },
   user: {

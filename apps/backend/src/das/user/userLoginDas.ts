@@ -11,14 +11,6 @@ class userLoginDas extends DBOperations {
       {
         $match: filter,
       },
-      {
-        $lookup: {
-          from: collections.system.masUserRole,
-          let: { userRoles: "$user_role_ids" },
-          pipeline: [{ $match: { $expr: { $in: ["$_id", "$$userRoles"] } } }],
-          as: "userRoleDetails",
-        },
-      },
     ]);
   }
 }

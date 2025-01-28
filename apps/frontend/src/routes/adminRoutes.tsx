@@ -2,7 +2,7 @@ import { USER_ROLE } from "@dscl-ttg/constants";
 import { RouterConfigData } from "@dscl-ttg/types/app";
 import React from "react";
 import { BsFillClipboardFill } from "react-icons/bs";
-import { FaRupeeSign } from "react-icons/fa";
+import { FaRupeeSign, FaUserSecret } from "react-icons/fa";
 import { FaClipboardQuestion } from "react-icons/fa6";
 import { GiProgression } from "react-icons/gi";
 import {
@@ -24,6 +24,9 @@ const ClassSetup = React.lazy(() => import("@modules/system/classSetup"));
 
 // Paper Routes
 const PaperSetup = React.lazy(() => import("@modules/system/paperSetup"));
+
+// User Routes
+const UserRegistration = React.lazy(() => import("@modules/user"));
 
 const adminRoutes: RouterConfigData[] = [
   {
@@ -69,6 +72,15 @@ const adminRoutes: RouterConfigData[] = [
         permittedRole: [USER_ROLE.SUPER_ADMIN],
       }
     ],
+   
+  },
+  {
+    element: <UserRegistration/>,
+    title: "Users",
+    type: "item",
+    path: ["/userregistrations"],
+    permittedRole: [USER_ROLE.SUPER_ADMIN],
+    icon: <FaUserSecret/>
   }
 ];
 export default adminRoutes;

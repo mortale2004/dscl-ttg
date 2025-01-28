@@ -14,7 +14,6 @@ import {
 import { Request, Response } from "express";
 import userLoginDas from "src/das/user/userLoginDas";
 import {
-  jobSeekerRegistrationSchema,
   userLoginPayloadSchema,
 } from "@dscl-ttg/types/user";
 import { USER_CONSTANTS } from "@dscl-ttg/constants";
@@ -52,19 +51,18 @@ export const handleLogout = async (req: Request, res: Response) => {
   res.clearCookie("refresh_token");
 };
 export const getUserData = async (filter: any) => {
-  // TODO
+  filter.is_active = true;
+  filter.is_deleted = false;
   const [response] = await userRegistrationDas.aggregate(filter);
   if (!response?.data?.[0]) {
     return null;
   }
 
   const user = response.data[0];
-  user.layout_type_name = user?.userRoleDetails?.[0]?.layout_type_name;
-  user.user_role_name = user?.userRoleDetails?.[0]?.user_role_name;
   if (user.user_role_name !== USER_CONSTANTS.USER_ROLE.SUPER_ADMIN) {
     const [permissions] = await userRolePermissionDas.aggregate({
       basicFilter: {
-        user_role_id: user?.user_role_ids?.[0],
+        user_role_id: user?.user_role_id,
       },
     });
 
@@ -116,6 +114,8 @@ export const authController = {
       basicFilter: {
         username: payload.username,
         password: payload.password,
+        is_active: true,
+        is_deleted: false,
       },
     });
 

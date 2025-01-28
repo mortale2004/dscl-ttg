@@ -15,3 +15,6 @@ export * from './classroomModel';
 
 export * from './paperModel';
 export * from './paperTypeModel';
+
+export * from './timeSlotModel';
+export * from './timeTableModel';

@@ -42,9 +42,9 @@ class userRegistrationDas extends DBOperations {
         {
           $lookup: {
             from: collections.system.masUserRole,
-            let: { userRoles: "$user_role_ids" },
+            let: { userRole: "$user_role_id" },
             pipeline: [
-              { $match: { $expr: { $in: ["$_id", "$$userRoles"] } } },
+              { $match: { $expr: { $eq: ["$_id", "$$userRole"] } } },
               {
                 $lookup: {
                   from: collections.system.masLayoutType,
@@ -70,6 +70,59 @@ class userRegistrationDas extends DBOperations {
             as: "userRoleDetails",
           },
         },
+        {
+          $lookup: {
+            from: collections.system.masPaper,
+            let: { paperIds: "$paper_ids" },
+            pipeline: [
+              { $match: { $expr: { $in: ["$_id", "$$paperIds"] } } },
+              {
+                $lookup: {
+                  from: collections.system.masPaperType,
+                  let: { paperTypeId: "$paper_type_id" },
+                  pipeline: [{ $match: { $expr: { $eq: ["$_id", "$$paperTypeId"] } } }],
+                  as: "paperTypeDetails",
+                },
+              },
+              {
+                $project: {
+                  _id: 1,
+                  paper_name:1,
+                  paper_code:1,
+                  paper_type_id: 1,
+                  paper_type_name: { $first: "$paperTypeDetails.paper_type_name" },
+                },
+              }
+            ],
+            as: "papers",
+          },
+        },
+        {
+          $project: {
+            first_name: 1,
+            username: 1,
+            password: 1,
+            last_name: 1,
+            father_name: 1,
+            primary_contact: 1,
+            secondary_contact: 1,
+            photo_url: 1,
+            email_address: 1,
+            gender_name: 1,
+            date_of_birth: 1,
+            user_role_id: 1,
+            is_deleted: 1,
+            _id: 1,
+            user_role_name: { $first: "$userRoleDetails.user_role_name" },
+            layout_type_id: 1,
+            layout_type_name: {
+              $first: "$userRoleDetails.layout_type_name",
+            },
+            is_active: 1,
+            papers: 1,
+            paper_ids:1,
+          },
+        }
       ],
       options,
       {

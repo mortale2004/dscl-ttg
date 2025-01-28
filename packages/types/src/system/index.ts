@@ -14,3 +14,6 @@ export * from './classroomSchema';
 
 export * from './paperSchema';
 export * from './paperTypeSchema';
+
+export * from './timeSlotSchema';
+export * from './timeTableSchema';

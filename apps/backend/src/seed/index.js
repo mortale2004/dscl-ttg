@@ -38,11 +38,14 @@ Promise.all([
     first_name: "Pavan",
     last_name: "Mortale",
     father_name: "Suryakant",
-    user_role_ids: ["1"],
+    user_role_id: "1",
     username: "admin",
     password: "admin",
     added_by: "1",
     added_on: new Date(),
+    is_active: true,
+    is_deleted: false,
+    paper_ids: [],
   })
 ]).then(()=>{
 
