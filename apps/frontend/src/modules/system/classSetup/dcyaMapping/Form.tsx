@@ -151,9 +151,9 @@ const Papers: React.FC<PapersProps> = memo(({ control }) => {
         <MenuItem
           key={option._id}
           value={option._id}
-          onClick={(event: any) => {
-            event.stopPropagation();
+          onClickCapture={(event: any) => {
             event.preventDefault();
+            event.stopPropagation();
             append(option);
           }}
         >

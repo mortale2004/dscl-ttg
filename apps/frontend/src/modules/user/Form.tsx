@@ -121,13 +121,12 @@ const Papers: React.FC<PapersProps> = memo(({ control }) => {
         <MenuItem
           key={option._id}
           value={option._id}
-          onClick={(event: any) => {
+          onClickCapture={(event: any) => {
             event.stopPropagation();
             event.preventDefault();
             append(option);
           }}
         >
-          {" "}
           <IconButton sx={{p:0, pr:2,}}><IoAddCircleOutline/> </IconButton> {option.paper_code} {option.paper_name}
         </MenuItem>
       ));

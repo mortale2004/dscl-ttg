@@ -98,6 +98,7 @@ class dcyaMappingDas extends DBOperations {
             is_active: 1,
             classroom_name: { $first: "$classroomDetails.classroom_name" },
             course_name: { $first: "$courseDetails.course_name" },
+            course_short_name: { $first: "$courseDetails.course_short_name" },
             course_sem_name: { $first: "$courseSemDetails.course_sem_name" },
             division_name: { $first: "$divisionDetails.division_name" },
             paper_ids:1,

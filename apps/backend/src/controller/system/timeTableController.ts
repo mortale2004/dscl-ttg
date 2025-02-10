@@ -1,4 +1,4 @@
-import { generateController, requestHandlingWrapper, validatePayload } from "@dscl-ttg/backend-utils";
+import { BadRequestError, generateController, requestHandlingWrapper, validatePayload } from "@dscl-ttg/backend-utils";
 import { timeTableSchema } from "@dscl-ttg/types/system";
 import timeTableDas from "src/das/system/timeTableDas";
 
@@ -15,12 +15,8 @@ export const timeTableController = generateController({
   },
   createHandler: ()=> requestHandlingWrapper(async (req, res) => {
     const payload = await validatePayload(req.body.formData, timeTableSchema.omit(["_id", "added_by", "added_on"]));
+
     
-
-
-
-
-
 
 
   })

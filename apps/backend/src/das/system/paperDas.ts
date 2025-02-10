@@ -9,11 +9,8 @@ class paperDas extends DBOperations {
   }
   isExists(payload: any) {
     const filter: any = {
-      $or: [
-
-       { paper_name: payload.paper_name},
-        {paper_code: payload.paper_code},
-      ]
+      paper_code: payload.paper_code,
+      course_sem_id: payload.course_sem_id
     };
     if (payload._id) {
       filter._id = { $ne: payload._id };

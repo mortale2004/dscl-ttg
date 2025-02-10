@@ -20,6 +20,8 @@
     "./ConfirmDialog": "./src/ConfirmDialog/index.tsx",
     "./Tooltip": "./src/Tooltip/index.tsx",
     "./IconButton": "./src/IconButton/index.tsx",
+    "./AddIconButton": "./src/IconButton/AddIconButton.tsx",
+    "./DeleteIconButton": "./src/IconButton/DeleteIconButton.tsx",
     "./Container": "./src/Container/index.tsx",
     "./Search": "./src/Search/index.tsx",
     "./Button": "./src/Button/index.tsx",
