@@ -72,7 +72,7 @@ const adminRoutes: RouterConfigData[] = [
         element: <TimeTableSetup />,
         title: "Time Table Setup",
         type: "item",
-        path: ["/timetable/timeslots", "/timetable/timetable"],
+        path: ["/timetable/timeslots", "/timetable/timetable", "/timetable/viewtimetable"],
         permittedRole: [USER_ROLE.SUPER_ADMIN],
       },
     ],

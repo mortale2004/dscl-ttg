@@ -10,7 +10,7 @@ export const dcyaMappingController = generateController({
   addMetaData: true,
   searchableFields: ["division_name"],
   getListParams: {
-    basicFilter: ["is_active", ],
+    basicFilter: ["is_active", "academic_year_id", "course_id", "course_sem_id", "department_id", "division_id", "classroom_id"],
     sortBy: {
       course_name: 1,
       course_sem_number: 1,

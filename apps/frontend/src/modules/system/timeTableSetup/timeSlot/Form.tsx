@@ -38,8 +38,7 @@ const Form: React.FC<FormProps> = memo(({ watch, setValue }) => {
         <GridItem>
           <TextField
             label="Break Slot"
-            name="break_slot_name"
-            slotProps={timeSlotSlotProps}
+            name="break_name"
           />
         </GridItem>
       )}

@@ -4,9 +4,12 @@ import Form from "./Form";
 import { CrudDialogMode } from "@dscl-ttg/store";
 import { timeSlotSchema } from "@dscl-ttg/types/system";
 import BasicFilterForm from "./FilterForm/BasicFilterForm";
+import Container from "@dscl-ttg/ui/Container";
 
 const TimeSlot = () => {
   return (
+    <Container>
+
     <Crud
       componentName={componentName}
       hookName={hookName}
@@ -17,7 +20,8 @@ const TimeSlot = () => {
       getDefaultValues={getDefaultValues}
       FormComponent={Form}
       schema={schema}
-    />
+      />
+      </Container>
   );
 };
 

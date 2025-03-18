@@ -23,14 +23,14 @@ const defaultStyles = {
 };
 
 const Table: React.FC<TableProps> = memo(
-  ({ tableBodyKeys, tableHeaders, data, ...rest }) => {
+  ({ tableBodyKeys, tableHeaders, data, rowKey, ...rest }) => {
     return (
       <TableContainer sx={defaultStyles}>
         <MuiTable {...rest} stickyHeader>
           {tableHeaders && tableHeaders.length > 0 && (
             <TableHead tableHeaders={tableHeaders} />
           )}
-          <TableBody tableBodyKeys={tableBodyKeys} data={data} />
+          <TableBody rowKey={rowKey} tableBodyKeys={tableBodyKeys} data={data} />
         </MuiTable>
       </TableContainer>
     );
@@ -60,13 +60,14 @@ const TableHead: React.FC<TableHeadProps> = memo(({ tableHeaders = [] }) => {
 type TableBodyProps = {
   tableBodyKeys: (string | Function)[];
   data: any[];
+  rowKey?: string;
 } & MuiTableBodyProps;
 
-const TableBody: React.FC<TableBodyProps> = memo(({ data, tableBodyKeys }) => {
+const TableBody: React.FC<TableBodyProps> = memo(({ data, tableBodyKeys, rowKey="_index" }) => {
   return (
     <MuiTableBody>
       {data.map((item, index) => (
-        <TableBodyRow key={index} item={item} rowIndex={index} tableBodyKeys={tableBodyKeys} />
+        <TableBodyRow key={rowKey === "_index" ? index : item[rowKey]} item={item} rowIndex={index} tableBodyKeys={tableBodyKeys} />
       ))}
     </MuiTableBody>
   );

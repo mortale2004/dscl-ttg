@@ -28,6 +28,7 @@ export type UserRoleType =
   | "SUPER_ADMIN"
   | "PUBLIC"
   | "ADMIN"
+  | "TEACHER"
 
 type UserRoleObjType = {
   [key in UserRoleType]: UserRoleType;
@@ -36,6 +37,7 @@ export const USER_ROLE: UserRoleObjType = {
   SUPER_ADMIN: "SUPER_ADMIN",
   ADMIN: "ADMIN",
   PUBLIC: "PUBLIC",
+  TEACHER: "TEACHER",
 };
 
 export const USER_CONSTANTS = {

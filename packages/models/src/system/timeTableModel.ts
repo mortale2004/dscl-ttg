@@ -7,12 +7,9 @@ export const timeTableModel = generateModel(
   {
     day_number: {type:String, required: true},
     dcya_id: {type:String, required: true},
-    time_slot_id: {type:String, required: true},
-    paper_id: {type:String},
-    teacher_id: {type:String},
+    time_slots: {type:Array, min:1, required: true},
   },
   timeTableSchema,
-  true,
   true,
   true,
 );

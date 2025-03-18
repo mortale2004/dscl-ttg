@@ -2,12 +2,11 @@ import React from "react";
 import Tabs, { TabType } from "@dscl-ttg/ui/Tabs";
 import Container from "@dscl-ttg/ui/Container";
 import TimeSlot from "./timeSlot";
-import TimeTable from "./timeTable";
+import TimeTable from "./timeTable1";
+import ViewTimeTable from "./viewTimeTable";
 const PaperSetup = () => {
   return (
-    <Container>
       <Tabs tabs={tabs} />
-    </Container>
   );
 };
 
@@ -23,5 +22,10 @@ const tabs: TabType[] = [
     label: "Time Table",
     path: "/timetable/timetable",
     component: <TimeTable/>,
+  },
+  {
+    label:"View Time Table",
+    path: "/timetable/viewtimetable",
+    component:<ViewTimeTable/>,
   }
 ];
