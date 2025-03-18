@@ -46,12 +46,11 @@ const onPrint  = useReactToPrint({
             : "",
           day_number: searchParams?.day_number ? searchParams.day_number : "",
         }}
-        FormComponent={FormComponent}
+        FormComponent={(props:any)=> <FormComponent {...props} onPrint={onPrint}/>}
         submitButtonProps={{} as any}
       />
       <Box>
 
-        <Button onClick={onPrint as any}>Print Time Table</Button>
         {data?.data?.[0] ? 
         <TimeTableDisplay printTableRef={printTableRef} data={data?.data?.[0]||{}}/>
         : <></>}

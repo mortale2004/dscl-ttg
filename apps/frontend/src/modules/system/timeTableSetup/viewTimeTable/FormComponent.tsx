@@ -1,10 +1,13 @@
 import { apiHooks } from '@dscl-ttg/hooks';
 import { SelectField } from '@dscl-ttg/ui/Form';
 import GridItem from '@dscl-ttg/ui/GridItem';
+import { Button } from '@mui/material';
 import React, { Fragment } from 'react'
 import { UseFormReturn } from 'react-hook-form';
+import { FaEye } from 'react-icons/fa';
+import { IoPrint } from 'react-icons/io5';
 
-const FormComponent : React.FC<{} & UseFormReturn> = ({watch}) => {
+const FormComponent : React.FC<{onPrint: Function} & UseFormReturn> = ({watch, onPrint}) => {
 
     const academic_year_id = watch("academic_year_id");
     const department_id = watch("department_id");
@@ -84,6 +87,22 @@ const FormComponent : React.FC<{} & UseFormReturn> = ({watch}) => {
         />
       </GridItem>
 
+
+
+
+    <GridItem md={4} className='space-between' sx={{
+      gap: 3
+    }}>
+
+      {onPrint &&  
+
+<Button startIcon={<IoPrint/>} onClick={onPrint as any} variant='contained' fullWidth >Print</Button>
+
+
+}
+
+<Button startIcon={<FaEye/> } type="submit" variant='contained' fullWidth>View</Button>
+</GridItem>
     </Fragment>
   )
 }
